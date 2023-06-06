@@ -1,0 +1,34 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/social
+    username: admin
+    password: password
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+application:
+  security:
+    jwt:
+      secret-key: 3979244226452948404D635166546A576E5A7234753778214125432A462D4A61
+      expiration: 86400000 # 1 day
+      refresh-token:
+        expiration: 604800000 # 7 days
+server:
+  forward-headers-strategy: framework
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+springdoc.swagger-ui.path: /doc
+logging:
+  level:
+    root: WARN
+    com.pakhomov.socialmedia: DEBUG
